@@ -8,13 +8,13 @@ before do
 end
 
 get '/radio24' do
-  @player.radio24_bathroom
-  'Radio24'
+  playing = @player.radio24_bathroom
+  "Radio24 #{playing ? 'on' : 'off'}"
 end
 
 get '/discover' do
-  @player.discover_weekly_party
-  'Discover'
+  playing = @player.discover_weekly_party
+  "Discover #{playing ? 'on' : 'off'}"
 end
 
 get '/party' do
@@ -23,9 +23,12 @@ get '/party' do
 end
 
 class Player
+
   def radio24_bathroom
     system.party_over
     b = select_speaker('Bathroom')
+    return b.stop && false if b.is_playing?
+
     b.clear_queue
     b.volume = 10
     b.add_to_queue('x-rincon-mp3radio://icecast.radio24.ch/radio24')
@@ -34,8 +37,10 @@ class Player
 
   def discover_weekly_party
     m = party_master
+    return m.stop && false if m.is_playing?
+
     m.clear_queue
-    m.volume = 20
+    m.volume = 30
     m.add_spotify_to_queue(id: '4cBfjj6H32iO1VekiDGPYB', type: 'playlist', user: 'spotifydiscover')
     m.play
   end
