@@ -8,6 +8,7 @@ This is how I wired up my [flic bluetooth buttons](https://flic.io) with my [Son
 git clone https://github.com/masone/sonos-flic.git
 cd sonos-flic
 bundle install
+```
 
 ## Usage
 
