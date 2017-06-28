@@ -2,6 +2,9 @@
 
 This is how I wired up my [flic bluetooth buttons](https://flic.io) with my [Sonos](http://www.sonos.com).
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/qPZerEtexoA/0.jpg)](https://youtu.be/qPZerEtexoA)
+
+
 ## Installation
 
 ```
