@@ -21,6 +21,6 @@ bundle exec ruby server.rb
 ## Installation on Raspberry Pi
 
 ```
-sudo crontab -e
+crontab -e
 cd /home/pi/sonos-flic/ && bundle exec ruby server.rb &
 ```
